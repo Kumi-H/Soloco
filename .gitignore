@@ -36,41 +36,6 @@ yarn-error.log*
 /apps/frontend/*.tsbuildinfo
 /apps/frontend/next-env.d.ts
 
-# FastAPI
-/apps/backend/.idea
-/apps/backend/.ipynb_checkpoints
-/apps/backend/.mypy_cache
-/apps/backend/.vscode
-/apps/backend/app/static/credentials
-/apps/backend/app/__pycache__
-/apps/backend/app/tests/__pycache__
-/apps/backend/app/routers/__pycache__
-/apps/backend/app/schemas/__pycache__
-/apps/backend/app/core/__pycache__
-/apps/backend/app/models/__pycache__
-/apps/backend/app/database/__pycache__
-/apps/backend/app/database/migrations/__pycache__
-/apps/backend/app/utils/analysis/__pycache__
-/apps/backend/app/utils/analysis/*.png
-/apps/backend/.pytest_cache
-/apps/backend/htmlcov
-/apps/backend/dist
-/apps/backend/site
-/apps/backend/.coverage
-/apps/backend/coverage.xml
-/apps/backend/.netlify
-/apps/backend/test.db
-/apps/backend/log.txt
-/apps/backend/Pipfile.lock
-/apps/backend/env3.*
-/apps/backend/app/.env
-/apps/backend/docs_build
-/apps/backend/site_build
-/apps/backend/venv
-/apps/backend/docs.zip
-/apps/backend/archive.zip
-/apps/backend/ipaexg.ttf
-
 # vim temporary files
 /apps/backend/*~
 /apps/backend/.*.sw?

@@ -1,26 +1,9 @@
-# 
-FROM python:3.9
-
-# 
+FROM maven:3.9-eclipse-temurin-23-alpine AS builder
 WORKDIR /backend
+COPY ./src ./src
+COPY ./pom.xml .
+RUN mvn package -DskipTests
 
-
-COPY ./app/static /backend/app/static
-
-# 
-COPY ./requirements.txt /backend/requirements.txt
-
-# 
-RUN pip install --no-cache-dir --upgrade -r /backend/requirements.txt
-
-#
-RUN pip install pytest
-
-# 
-COPY ./app /backend/app
-
-#
-EXPOSE 8000
-
-# 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+FROM eclipse-temurin:23-jdk
+COPY --from=builder /backend/target/app.jar /app/app.jar
+EXPOSE 8080
