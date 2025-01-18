@@ -23,7 +23,7 @@ services:
       - "8080:8080"
     entrypoint: "java -jar /app/app.jar"
     networks:
-      - db-network
+      - spring-network
 
   postgres:
     image: postgres:10.3
@@ -37,11 +37,11 @@ services:
     ports:
       - '5432:5432'
     networks:
-      - db-network
+      - spring-network
 
 volumes:
   postgres_data:
 
 networks:
-  db-network:
+  spring-network:
     external: true
