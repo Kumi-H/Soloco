@@ -8,7 +8,7 @@ import java.util.Map;
 @RestController
 public class DemoContoroller {
 
-    @GetMapping("")
+    @GetMapping("/")
     public Map<String, String> getDemo() {
         return Map.of("msg", "Hello World!");
     }
