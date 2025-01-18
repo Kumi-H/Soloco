@@ -19,7 +19,7 @@ public class FirebaseClient {
     @PostConstruct
     public void initializeFirebase() {
         
-        try (InputStream serviceAccount = new ClassPathResource("static/config/credential.json").getInputStream()) {
+        try (InputStream serviceAccount = new ClassPathResource("config/credential.json").getInputStream()) {
             
             if (serviceAccount == null) {
                 throw new IllegalArgumentException("Firebase credential file not found.");
