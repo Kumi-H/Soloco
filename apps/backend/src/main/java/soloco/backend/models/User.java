@@ -1,8 +1,15 @@
 package soloco.backend.models;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import lombok.Data;
 
 @Entity

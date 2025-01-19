@@ -1,8 +1,18 @@
 package soloco.backend.models;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.FetchType;
 import lombok.Data;
 
 @Entity
@@ -53,13 +63,13 @@ public class Activity {
     @JoinColumn(name = "provider_id")
     private Provider provider;
 
-    // @ManyToOne(fetch = FetchType.LAZY)
-    // @JoinColumn(name = "activity_category_id")
-    // private ActivityCategory activityCategory;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "activity_category_id")
+    private ActivityCategory activityCategory;
 
-    // @ManyToOne(fetch = FetchType.LAZY)
-    // @JoinColumn(name = "activity_subcategory_id")
-    // private ActivitySubcategory activitySubcategory;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "activity_subcategory_id")
+    private ActivitySubcategory activitySubcategory;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
