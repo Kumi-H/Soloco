@@ -14,29 +14,14 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "providers")
-public class Provider {
+@Table(name = "activity_categories")
+public class ActivityCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    @Column(name = "phone_number", nullable = false)
-    private int phoneNumber;
-
-    @Column(nullable = false)
-    private String address;
-
-    @Column(name = "url")
-    private String url;
-
-    @Column(name = "business_hours")
-    private String businessHours;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -53,5 +38,5 @@ public class Provider {
     @PreUpdate
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
-    }
+    }    
 }
