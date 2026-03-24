@@ -8,13 +8,21 @@ import { useAuth } from "@/app/commons/auth/firebaseConfig";
 import { useToken } from "@/app/commons/contexts/contexts";
 import { useRouter } from "next/navigation";
 
-const UserMenu = ({ iconSrc }) => {
+interface IconProps {
+  iconSrc: string;
+}
+
+const UserMenu: React.FC<IconProps> = ({ iconSrc }) => {
   const { signOut } = useAuth();
   const { token, setToken } = useToken();
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   const handleLogout = async (event: React.MouseEvent) => {
+    if(!token){
+      return;
+    }
+
     event.preventDefault();
     const result = await signOut();
     setToken("");
@@ -33,8 +41,8 @@ const UserMenu = ({ iconSrc }) => {
         <Image
           src={iconSrc}
           alt="User Icon"
-          width={32}
-          height={32}
+          width={40}
+          height={40}
           className="rounded-full"
         />
       </button>
