@@ -57,9 +57,9 @@ export const CustomerHeader = () => {
               <CustomerNavigationMenu />
               <div className="ml-3 lg:ml-5">
                 {token ? (
-                  <UserMenu iconSrc={CustomerLoginIconImage} />
+                  <UserMenu iconSrc={CustomerLoginIconImage} isBiz={false} />
                 ) : (
-                  <UserMenu iconSrc={CustomerLogoutIconImage} />
+                  <UserMenu iconSrc={CustomerLogoutIconImage} isBiz={false} />
                 )}
               </div>
             </div>
@@ -70,32 +70,39 @@ export const CustomerHeader = () => {
   );
 };
 
-export const BusinessHeader = () => (
-  <header className="relative">
-    <div className="mx-auto">
-      <div className="flex items-center justify-between px-5 lg:px-10 py-2 h-20 lg:h-24">
-        <div className="flex-shrink-0">
-          <Link href="/business">
-            <div className="text-lg lg:text-xl font-bold">
-              <Image
-                src="/soloco_logo.png"
-                width={180}
-                height={35}
-                alt="Logo"
-                className="w-[200px] lg:w-[260px]" // モバイル時のサイズ
-              />
-            </div>
-          </Link>
-        </div>
-        <div className="flex items-center h-full text-base lg:text-lg">
-          <div className="ml-3 lg:ml-5">
-            <UserMenu iconSrc={BizIconImage} />
+export const BusinessHeader = () => {
+  const pathname = usePathname();
+  const isLoginPage = pathname === "/biz/login";
+  return (
+    <header className="relative">
+      <div className="mx-auto">
+        <div className="flex items-center justify-between px-5 lg:px-10 py-2 h-20 lg:h-24">
+          <div className="flex-shrink-0">
+            <Link href="/biz">
+              <div className="text-lg lg:text-xl font-bold">
+                <Image
+                  src="/soloco_logo.png"
+                  width={180}
+                  height={35}
+                  alt="Logo"
+                  className="w-[200px] lg:w-[260px]" // モバイル時のサイズ
+                />
+              </div>
+            </Link>
           </div>
+
+          {!isLoginPage && (
+            <div className="flex items-center h-full text-base lg:text-lg">
+              <div className="ml-3 lg:ml-5">
+                <UserMenu iconSrc={BizIconImage} isBiz={true} />
+              </div>
+            </div>
+          )}
         </div>
       </div>
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 export const LandingPageHeader = () => (
   <header className="relative">
