@@ -1,11 +1,9 @@
 "use client";
 
-import React from "react";
 import { useToken } from "../commons/contexts/contexts";
 
 export default function BizHome() {
   const { token } = useToken();
-  console.log("Bizトークン", token)
 
   return (
     <div className="flex items-center justify-center">

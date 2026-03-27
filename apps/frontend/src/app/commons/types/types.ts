@@ -106,6 +106,17 @@ export const authSchema = z.object({
 
 export type AuthSchema = z.infer<typeof authSchema>;
 
+export const bizAuthSchema = z.object({
+  company: z.string().min(1, { message: "企業名を入力してください" }),
+  contactName: z.string().min(1, { message: "ご担当者氏名を入力してください" }),
+  email: z
+    .string()
+    .email({ message: "メールアドレスの形式で入力してください" }),
+  password: z.string().min(8, { message: "8文字以上で入力してください" }),
+});
+
+export type BizAuthSchema = z.infer<typeof bizAuthSchema>;
+
 export const signInSchema = z.object({
   email: z
     .string()

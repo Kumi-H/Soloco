@@ -3,7 +3,7 @@ services:
     build:
       context: ./apps/frontend
       dockerfile: Dockerfile
-    container_name: frontend_container
+    container_name: soloco_frontend
     ports:
       - "3000:3000"
     environment:
@@ -16,7 +16,7 @@ services:
     build:
       context: ./apps/backend
       dockerfile: Dockerfile
-    container_name: backend_container
+    container_name: soloco_backend
     depends_on:
       - postgres
     ports:
